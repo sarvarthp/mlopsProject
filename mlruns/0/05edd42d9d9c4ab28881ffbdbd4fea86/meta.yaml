@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/05edd42d9d9c4ab28881ffbdbd4fea86/artifacts
+end_time: 1758642186382
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 05edd42d9d9c4ab28881ffbdbd4fea86
+run_name: gentle-lark-579
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758642179344
+status: 3
+tags: []
+user_id: Sarvarth

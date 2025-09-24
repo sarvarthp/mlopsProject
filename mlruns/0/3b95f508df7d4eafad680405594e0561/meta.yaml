@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/3b95f508df7d4eafad680405594e0561/artifacts
+end_time: 1758641463974
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3b95f508df7d4eafad680405594e0561
+run_name: blushing-worm-542
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758641457501
+status: 3
+tags: []
+user_id: Sarvarth

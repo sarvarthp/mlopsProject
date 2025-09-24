@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/f27e421731a84559b6a80b8aa4713218/artifacts
+end_time: 1758618472171
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f27e421731a84559b6a80b8aa4713218
+run_name: invincible-hen-466
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758618453352
+status: 3
+tags: []
+user_id: Sarvarth

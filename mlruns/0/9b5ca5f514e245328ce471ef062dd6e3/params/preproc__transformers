@@ -1,0 +1,5 @@
+[('num', Pipeline(steps=[('imputer', SimpleImputer(strategy='median')),
+                ('scaler', StandardScaler())]), ['Age', 'Flight Distance', 'Inflight wifi service', 'Departure/Arrival time convenient', 'Ease of Online booking', 'Gate location', 'Food and drink', 'Online boarding', 'Seat comfort', 'Inflight entertainment', 'On-board service', 'Leg room service', 'Baggage handling', 'Checkin service', 'Inflight service', 'Cleanliness', 'Departure Delay in Minutes', 'Arrival Delay in Minutes']), ('cat', Pipeline(steps=[('imputer',
+                 SimpleImputer(fill_value='missing', strategy='constant')),
+                ('ohe',
+                 OneHotEncoder(handle_unknown='ignore', sparse_output=False))]), ['Gender', 'Customer Type', 'Type of Travel', 'Class'])]

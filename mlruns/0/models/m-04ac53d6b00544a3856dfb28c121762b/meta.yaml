@@ -1,0 +1,10 @@
+artifact_location: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/models/m-04ac53d6b00544a3856dfb28c121762b/artifacts
+creation_timestamp: 1758619363090
+experiment_id: '0'
+last_updated_timestamp: 1758619369541
+model_id: m-04ac53d6b00544a3856dfb28c121762b
+model_type: null
+name: model
+source_run_id: 9b5ca5f514e245328ce471ef062dd6e3
+status: 2
+status_message: null

@@ -1,0 +1,10 @@
+artifact_location: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/models/m-72bb26486d52441fa5f7388791ecd6a6/artifacts
+creation_timestamp: 1758700876489
+experiment_id: '0'
+last_updated_timestamp: 1758700889362
+model_id: m-72bb26486d52441fa5f7388791ecd6a6
+model_type: null
+name: random-forest-model
+source_run_id: 4830bcb045944f7cbc5cdc47d95a9d1b
+status: 2
+status_message: null

@@ -1,0 +1,24 @@
+digest: beafcce0
+name: dataset
+profile: '{"num_rows": 9005, "num_elements": 198110}'
+schema: '{"mlflow_colspec": [{"type": "long", "name": "Age", "required": true}, {"type":
+  "long", "name": "Flight Distance", "required": true}, {"type": "long", "name": "Inflight
+  wifi service", "required": true}, {"type": "long", "name": "Departure/Arrival time
+  convenient", "required": true}, {"type": "long", "name": "Ease of Online booking",
+  "required": true}, {"type": "long", "name": "Gate location", "required": true},
+  {"type": "long", "name": "Food and drink", "required": true}, {"type": "long", "name":
+  "Online boarding", "required": true}, {"type": "long", "name": "Seat comfort", "required":
+  true}, {"type": "long", "name": "Inflight entertainment", "required": true}, {"type":
+  "long", "name": "On-board service", "required": true}, {"type": "long", "name":
+  "Leg room service", "required": true}, {"type": "long", "name": "Baggage handling",
+  "required": true}, {"type": "long", "name": "Checkin service", "required": true},
+  {"type": "long", "name": "Inflight service", "required": true}, {"type": "long",
+  "name": "Cleanliness", "required": true}, {"type": "long", "name": "Departure Delay
+  in Minutes", "required": true}, {"type": "double", "name": "Arrival Delay in Minutes",
+  "required": false}, {"type": "string", "name": "Gender", "required": true}, {"type":
+  "string", "name": "Customer Type", "required": true}, {"type": "string", "name":
+  "Type of Travel", "required": true}, {"type": "string", "name": "Class", "required":
+  true}]}'
+source: '{"tags": {"mlflow.user": "Sarvarth", "mlflow.source.name": "D:\\SCIT\\Semester3\\MLOps\\airline-sat\\src\\train.py",
+  "mlflow.source.type": "LOCAL"}}'
+source_type: code

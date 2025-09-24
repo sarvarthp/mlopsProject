@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/9b5ca5f514e245328ce471ef062dd6e3/artifacts
+end_time: 1758619372144
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9b5ca5f514e245328ce471ef062dd6e3
+run_name: judicious-wasp-93
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758619360292
+status: 3
+tags: []
+user_id: Sarvarth

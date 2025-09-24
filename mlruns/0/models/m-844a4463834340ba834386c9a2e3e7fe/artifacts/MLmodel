@@ -1,0 +1,45 @@
+artifact_path: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/models/m-844a4463834340ba834386c9a2e3e7fe/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+is_signature_from_type_hint: false
+mlflow_version: 3.4.0
+model_id: m-844a4463834340ba834386c9a2e3e7fe
+model_size_bytes: 94024
+model_uuid: m-844a4463834340ba834386c9a2e3e7fe
+prompts: null
+run_id: f27e421731a84559b6a80b8aa4713218
+signature:
+  inputs: '[{"type": "long", "name": "Age", "required": true}, {"type": "long", "name":
+    "Flight Distance", "required": true}, {"type": "long", "name": "Inflight wifi
+    service", "required": true}, {"type": "long", "name": "Departure/Arrival time
+    convenient", "required": true}, {"type": "long", "name": "Ease of Online booking",
+    "required": true}, {"type": "long", "name": "Gate location", "required": true},
+    {"type": "long", "name": "Food and drink", "required": true}, {"type": "long",
+    "name": "Online boarding", "required": true}, {"type": "long", "name": "Seat comfort",
+    "required": true}, {"type": "long", "name": "Inflight entertainment", "required":
+    true}, {"type": "long", "name": "On-board service", "required": true}, {"type":
+    "long", "name": "Leg room service", "required": true}, {"type": "long", "name":
+    "Baggage handling", "required": true}, {"type": "long", "name": "Checkin service",
+    "required": true}, {"type": "long", "name": "Inflight service", "required": true},
+    {"type": "long", "name": "Cleanliness", "required": true}, {"type": "long", "name":
+    "Departure Delay in Minutes", "required": true}, {"type": "double", "name": "Arrival
+    Delay in Minutes", "required": true}, {"type": "string", "name": "Gender", "required":
+    true}, {"type": "string", "name": "Customer Type", "required": true}, {"type":
+    "string", "name": "Type of Travel", "required": true}, {"type": "string", "name":
+    "Class", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-09-23 09:07:35.617065'

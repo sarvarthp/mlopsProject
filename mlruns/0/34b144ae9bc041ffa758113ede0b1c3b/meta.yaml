@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/34b144ae9bc041ffa758113ede0b1c3b/artifacts
+end_time: 1758640876354
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 34b144ae9bc041ffa758113ede0b1c3b
+run_name: zealous-cow-41
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758640781666
+status: 3
+tags: []
+user_id: Sarvarth
