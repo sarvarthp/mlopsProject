@@ -1,0 +1,10 @@
+artifact_location: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/models/m-f6bd84a0856d45aab4749947769119a4/artifacts
+creation_timestamp: 1758714860221
+experiment_id: '0'
+last_updated_timestamp: 1758714864995
+model_id: m-f6bd84a0856d45aab4749947769119a4
+model_type: null
+name: decisiontree_model
+source_run_id: c05441515b1d4e9a8f3d8b70b2e598a8
+status: 2
+status_message: null

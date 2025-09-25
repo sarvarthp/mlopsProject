@@ -7,16 +7,17 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 
-MODEL_PATH = Path(__file__).resolve().parents[1] / "models" / "model.pkl"
-METRICS_PATH = Path(__file__).resolve().parents[1] / "models" / "metrics.json"
-CONF_MATRIX_PATH = Path(__file__).resolve().parents[1] / "models" / "confusion_matrix.npy"
+MODEL_DIR = Path(__file__).resolve().parents[1] / "models"
+METRICS_PATH = MODEL_DIR / "metrics.json"
+CONF_MATRIX_PATH = MODEL_DIR / "confusion_matrices.npy"
 
 st.set_page_config(page_title="Airline Passenger Satisfaction", layout="wide")
 st.title("✈️ Airline Passenger Satisfaction Predictor")
 
 @st.cache_resource
-def load_model():
-    return joblib.load(MODEL_PATH)
+def load_model(name):
+    path = MODEL_DIR / f"{name.lower()}_model.pkl"
+    return joblib.load(path)
 
 def load_metrics():
     if METRICS_PATH.exists():
@@ -24,17 +25,13 @@ def load_metrics():
             return json.load(f)
     return None
 
-def load_conf_matrix():
+def load_conf_matrices():
     if CONF_MATRIX_PATH.exists():
-        return np.load(CONF_MATRIX_PATH)
+        return np.load(CONF_MATRIX_PATH, allow_pickle=True).item()
     return None
 
-# Load model
-try:
-    model = load_model()
-except:
-    st.error("❌ Model not found. Run training first.")
-    st.stop()
+# Sidebar for algorithm selection
+algorithm = st.sidebar.selectbox("Select Algorithm", ["RandomForest", "DecisionTree"])
 
 # Sidebar inputs
 st.sidebar.header("Passenger Details")
@@ -48,23 +45,25 @@ travel_type = st.sidebar.selectbox("Type of Travel", ["Business travel", "Person
 travel_class = st.sidebar.selectbox("Class", ["Eco", "Eco Plus", "Business"])
 
 st.sidebar.header("Flight Experience Ratings (1–5)")
+ratings_cols = [
+    "On-board service", "Inflight service", "Online boarding", "Inflight entertainment",
+    "Departure/Arrival time convenient", "Leg room service", "Checkin service",
+    "Ease of Online booking", "Seat comfort", "Inflight wifi service", "Food and drink",
+    "Gate location", "Baggage handling", "Cleanliness"
+]
 
-# Service rating sliders
-onboard_service = st.sidebar.slider("On-board service", 1, 5, 3)
-inflight_service = st.sidebar.slider("Inflight service", 1, 5, 3)
-online_boarding = st.sidebar.slider("Online boarding", 1, 5, 3)
-inflight_entertainment = st.sidebar.slider("Inflight entertainment", 1, 5, 3)
-departure_arrival_convenient = st.sidebar.slider("Departure/Arrival time convenient", 1, 5, 3)
-leg_room_service = st.sidebar.slider("Leg room service", 1, 5, 3)
-checkin_service = st.sidebar.slider("Checkin service", 1, 5, 3)
-ease_online_booking = st.sidebar.slider("Ease of Online booking", 1, 5, 3)
-seat_comfort = st.sidebar.slider("Seat comfort", 1, 5, 3)
-inflight_wifi = st.sidebar.slider("Inflight wifi service", 1, 5, 3)
-food_drink = st.sidebar.slider("Food and drink", 1, 5, 3)
-gate_location = st.sidebar.slider("Gate location", 1, 5, 3)
-baggage_handling = st.sidebar.slider("Baggage handling", 1, 5, 3)
-cleanliness = st.sidebar.slider("Cleanliness", 1, 5, 3)
+rating_values = {}
+for col in ratings_cols:
+    rating_values[col] = st.sidebar.slider(col, 1, 5, 3)
 
+# Load model
+try:
+    model = load_model(algorithm)
+except:
+    st.error("❌ Model not found. Run training first.")
+    st.stop()
+
+# Predict
 if st.sidebar.button("Predict"):
     input_df = pd.DataFrame([{
         "Age": age,
@@ -75,34 +74,20 @@ if st.sidebar.button("Predict"):
         "Customer Type": cust_type,
         "Type of Travel": travel_type,
         "Class": travel_class,
-        "On-board service": onboard_service,
-        "Inflight service": inflight_service,
-        "Online boarding": online_boarding,
-        "Inflight entertainment": inflight_entertainment,
-        "Departure/Arrival time convenient": departure_arrival_convenient,
-        "Leg room service": leg_room_service,
-        "Checkin service": checkin_service,
-        "Ease of Online booking": ease_online_booking,
-        "Seat comfort": seat_comfort,
-        "Inflight wifi service": inflight_wifi,
-        "Food and drink": food_drink,
-        "Gate location": gate_location,
-        "Baggage handling": baggage_handling,
-        "Cleanliness": cleanliness
+        **rating_values
     }])
     pred = model.predict(input_df)[0]
     st.success("Prediction: " + ("✅ Satisfied" if pred == 1 else "❌ Dissatisfied"))
 
 # Show evaluation metrics
 st.markdown("---")
-st.subheader("📊 Model Performance (Test Data)")
+st.subheader(f"📊 Model Performance ({algorithm})")
 
 metrics = load_metrics()
-conf_matrix = load_conf_matrix()
+conf_matrices = load_conf_matrices()
 
-if metrics:
-    # Show metrics table
-    df_metrics = pd.DataFrame([metrics]).T.reset_index()
+if metrics and algorithm in metrics:
+    df_metrics = pd.DataFrame([metrics[algorithm]]).T.reset_index()
     df_metrics.columns = ["Metric", "Value"]
     st.dataframe(df_metrics, use_container_width=True)
 
@@ -114,14 +99,15 @@ if metrics:
     st.pyplot(fig)
 
     # Confusion matrix
-    if conf_matrix is not None:
+    if conf_matrices and algorithm in conf_matrices:
+        cm = conf_matrices[algorithm]
         st.subheader("🔍 Confusion Matrix")
         fig, ax = plt.subplots(figsize=(4, 4))
-        sns.heatmap(conf_matrix, annot=True, fmt="d", cmap="Blues", cbar=False,
+        sns.heatmap(cm, annot=True, fmt="d", cmap="Blues", cbar=False,
                     xticklabels=["Dissatisfied", "Satisfied"],
                     yticklabels=["Dissatisfied", "Satisfied"], ax=ax)
         ax.set_xlabel("Predicted")
         ax.set_ylabel("Actual")
         st.pyplot(fig)
 else:
-    st.info("Run training again to generate metrics.json and confusion_matrix.npy.")
+    st.info("Run training again to generate metrics and confusion matrices.")

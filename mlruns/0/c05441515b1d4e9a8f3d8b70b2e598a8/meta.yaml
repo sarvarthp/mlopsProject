@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/c05441515b1d4e9a8f3d8b70b2e598a8/artifacts
+end_time: 1758714865035
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c05441515b1d4e9a8f3d8b70b2e598a8
+run_name: DecisionTree
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758714860013
+status: 3
+tags: []
+user_id: Sarvarth

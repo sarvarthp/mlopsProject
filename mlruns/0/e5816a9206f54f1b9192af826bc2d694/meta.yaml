@@ -1,0 +1,14 @@
+artifact_uri: file:///D:/SCIT/Semester3/MLOps/airline-sat/mlruns/0/e5816a9206f54f1b9192af826bc2d694/artifacts
+end_time: 1758714858796
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: e5816a9206f54f1b9192af826bc2d694
+run_name: RandomForest
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1758714851549
+status: 3
+tags: []
+user_id: Sarvarth
